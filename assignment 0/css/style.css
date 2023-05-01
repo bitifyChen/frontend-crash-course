@@ -1,0 +1,342 @@
+@import url("reset.css");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+p,
+a,
+li,
+div {
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --main-color: #c1dcdc;
+  --gray: #919191;
+  --main-bdrs: 24px;
+}
+
+/*Header*/
+#menu {
+  display: none;
+}
+
+.main-header {
+  padding: 20px 0px;
+}
+.main-header .container {
+  display: flex;
+}
+.main-header .logo {
+  font-size: 26px;
+  font-family: "Vidaloka", serif;
+}
+.main-header .menu {
+  flex: 1 1 auto;
+}
+.main-header .menu ul {
+  display: flex;
+}
+.main-header .func {
+  display: flex;
+  align-items: center;
+}
+.main-header .func ul {
+  display: flex;
+  font-size: 26px;
+  height: 1em;
+  border-right: 1px solid black;
+  margin-right: 0.5em;
+}
+.main-header .func ul li {
+  padding: 0;
+}
+.main-header .func ul ion-icon {
+  padding: 0 0.5em;
+  color: black;
+}
+.main-header .func .hb {
+  --w: 26px;
+  --h: 20px;
+  --bar-h: 2px;
+  position: relative;
+  height: var(--h);
+  width: var(--w);
+}
+.main-header .func .hb span {
+  position: absolute;
+  width: var(--w);
+  height: var(--bar-h);
+  display: block;
+  background-color: black;
+  right: 0;
+}
+.main-header .func .hb span:nth-child(1) {
+  top: 0;
+  width: 100%;
+}
+.main-header .func .hb span:nth-child(2) {
+  top: calc(50% - var(--bar-h) / 2);
+  width: 80%;
+}
+.main-header .func .hb span:nth-child(3) {
+  width: 40%;
+  top: calc(100% - var(--bar-h));
+}
+
+@media screen and (max-width: 767px) {
+  .main-header .menu {
+    display: none;
+  }
+  .main-header .func {
+    margin-left: auto;
+  }
+  #menu:checked ~ .main-header .menu {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    background-color: var(--main-color);
+  }
+  #menu:checked ~ .main-header .menu .hb-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 50px;
+    color: black;
+  }
+  #menu:checked ~ .main-header .menu ul {
+    padding: 0 60px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #menu:checked ~ .main-header .menu ul li {
+    font-size: 30px;
+    line-height: 50px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .menu li a {
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: 1px;
+    color: black;
+    padding: 0.5em;
+  }
+  .menu .hb-close {
+    display: none;
+  }
+}
+/*Footer*/
+/*Section*/
+section {
+  padding: 60px 0px;
+}
+section .info h2 {
+  font-weight: 800;
+  font-size: 54px;
+}
+section .info h3 {
+  font-weight: 700;
+  font-size: 28px;
+}
+section .info p {
+  font-size: 18px;
+  padding: 0.5em 0px;
+  color: var(--gray);
+}
+
+@media screen and (min-width: 768px) {
+  section .info h2 {
+    font-size: 64px;
+  }
+  section .info h3 {
+    font-size: 32px;
+  }
+}
+/*Section-banner*/
+.section-banner .banner {
+  background-color: var(--main-color);
+  padding: 20px;
+  border-radius: var(--main-bdrs);
+  overflow: hidden;
+}
+.section-banner .banner .info .introduces {
+  display: flex;
+  font-weight: 500;
+  margin-left: -48px;
+  padding: 48px 0px;
+}
+.section-banner .banner .info .introduces .introduce {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  line-height: 27px;
+  padding: 0 48px;
+}
+.section-banner .banner .info .introduces .introduce span {
+  font-size: 32px;
+}
+.section-banner .banner .info .introduces .introduce + .introduce {
+  border-left: 1px solid #000;
+}
+.section-banner .banner .info .search {
+  display: flex;
+}
+.section-banner .banner .info .search input {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 12px;
+}
+.section-banner .banner .info .search button {
+  margin: 5px;
+  width: 35px;
+  height: 35px;
+  margin-left: -40px;
+  outline: none;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--main-color);
+  font-size: 20px;
+  line-height: 40px;
+}
+.section-banner .banner .pic {
+  position: relative;
+  width: 80%;
+  margin: 0 10%;
+  margin-bottom: -20px;
+}
+.section-banner .banner .pic .arrow_l {
+  position: absolute;
+  top: 60%;
+  bottom: 10%;
+  left: -20%;
+  right: 100%;
+}
+.section-banner .banner .pic .arrow_l img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.section-banner .banner .pic .arrow_r {
+  position: absolute;
+  top: 10px;
+  bottom: 70%;
+  right: -10%;
+}
+.section-banner .banner .pic .arrow_r img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.section-banner .banner .pic .plant {
+  position: relative;
+  width: 100%;
+}
+.section-banner .banner .pic .mask {
+  position: absolute;
+  top: 20%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  border-radius: 50% 50% 0% 50%;
+}
+
+@media screen and (min-width: 768px) {
+  .section-banner .banner {
+    padding: 30px;
+    display: flex;
+  }
+  .section-banner .banner .info {
+    flex: 1 1 auto;
+  }
+  .section-banner .banner .pic {
+    max-width: 400px;
+    margin-bottom: -30px;
+  }
+}
+/*Section-product*/
+.section-product .info {
+  text-align: center;
+}
+.section-product .info .more {
+  font-size: 18px;
+  background-color: var(--main-color);
+  outline: none;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.section-product .products .product {
+  display: flex;
+  flex-direction: column;
+}
+.section-product .products .product .info {
+  display: flex;
+  flex-direction: column;
+  order: 1;
+  text-align: left;
+  padding: 10px 0px;
+}
+.section-product .products .product .info .price {
+  margin-top: 10px;
+  color: var(--gray);
+}
+.section-product .products .product .pic {
+  display: flex;
+  justify-content: center;
+  order: 0;
+}
+.section-product .products .product .pic img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media screen and (max-width: 767px) {
+  .section-product .products {
+    padding: 20px;
+  }
+  .section-product .products .product {
+    margin: 20px 0px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .section-product .container {
+    display: flex;
+  }
+  .section-product .container > .info {
+    width: 25%;
+  }
+  .section-product .container > .products {
+    width: 75%;
+    display: flex;
+  }
+  .section-product .products {
+    margin: -20px;
+  }
+  .section-product .products .product {
+    margin: 0 20px;
+  }
+}/*# sourceMappingURL=style.css.map */
