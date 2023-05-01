@@ -683,6 +683,8 @@ section {
     .customers {
       display: flex;
       .customer {
+        width: 80%;
+        max-width: 1000px;
         .info {
           .user {
             width: 100%;

@@ -630,6 +630,10 @@ section .info p {
   .section-customer .customers {
     display: flex;
   }
+  .section-customer .customers .customer {
+    width: 80%;
+    max-width: 1000px;
+  }
   .section-customer .customers .customer .info .user {
     width: 100%;
     flex-direction: row;
