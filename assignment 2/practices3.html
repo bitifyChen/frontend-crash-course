@@ -1,0 +1,43 @@
+<!-- Create a simple html with some tags. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h1 id="title">Hello World</h1>
+    <div class="word">is me</div>
+    <div class="word">is me again</div>
+</head>
+
+<body>
+
+    <script>
+        //Using getElementById to get a element and print it.
+        let titleElement = document.getElementById("title")
+        console.log(titleElement.innerText)
+
+        //Using getElementsByClassName to get elements and print all.
+        let elements = document.getElementsByClassName("word")
+        for (let i = 0; i < elements.length; i++) {
+            console.log(elements[i].innerText);
+        }
+
+        //Using querySelector to get a element by id and print it.
+        titleElement = document.querySelector("#title")
+        console.log(titleElement.innerText)
+
+        //Using querySelector to get a element by class and print it.
+        elements = document.querySelector(".word")
+        console.log(elements.innerText)
+
+        //Using querySelector to get elements by class and print all.
+        elements = document.querySelectorAll(".word")
+        elements.forEach(e => console.log(e.innerText))
+
+    </script>
+</body>
+
+</html>

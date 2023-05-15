@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <input id="input" type="text" placeholder="Enter some color">
+        <button onclick="addColor()">Add Color</button>
+    </div>
+    <script>
+        //Append a p tag with “My first DOM created.” into container.
+        const container = document.querySelector('.container')
+        const paragraph = document.createElement("p")
+        paragraph.textContent = "My first DOM created."
+        container.appendChild(paragraph)
+
+        //Append a ul tag.
+        const unorderedList = document.createElement("ul");
+        container.appendChild(unorderedList);
+
+        //Append 3 li tags into the ul tag with 3 items: red, blue, yellow using for loop.
+        const items = ["red", "blue", "yellow"];
+        const addItem = (e) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = e;
+            unorderedList.appendChild(listItem);
+        }
+        items.forEach((e) => addItem(e))
+
+        //Create a text input and button called “add color”, when user click the button add the color in the text input into the list.
+        const addColor = () => {
+            const input = document.querySelector('#input')
+            addItem(input.value)
+            input.value = ''
+        }
+    </script>
+</body>
+
+</html>
