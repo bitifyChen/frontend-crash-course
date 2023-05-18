@@ -11,6 +11,7 @@
             padding: 0;
             margin: 0;
             box-sizing: border-box;
+            font-family: monospace;
         }
 
         h2 {
@@ -66,6 +67,94 @@
             text-align: center;
             font-weight: 900;
         }
+
+        section.todo .content {
+            box-shadow: 0 0 5px rgba(90, 88, 88, .2);
+            padding: 20px;
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        section.todo .content .list-fn {
+            display: flex;
+            width: 100%;
+        }
+
+        section.todo .content .list-fn input {
+            flex: 1 1 auto;
+            line-height: 30px;
+            font-size: 20px;
+            border: 1px solid rgb(177, 177, 177);
+        }
+
+        section.todo .content .list-fn button {
+            width: 100px;
+            margin-left: 20px;
+            line-height: 30px;
+            font-size: 20px;
+            transition: all .3s linear;
+            background-color: rgb(223, 223, 248);
+            outline: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        section.todo .content .list-fn button:hover {
+            background-color: rgb(203, 203, 247);
+            color: white;
+        }
+
+        section.todo .content .list-display {
+            min-height: 400px;
+            margin: 20px 0px;
+        }
+
+        section.todo .content .list-display .list {
+            display: flex;
+            align-items: center;
+            background-color: rgb(225, 225, 246);
+        }
+
+        section.todo .content .list-display .list .title {
+            font-size: 20px;
+            padding: 0px 10px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        section.todo .content .list-display .list .del,
+        #clearTodo {
+            color: #d8f0f9;
+            background-color: rgb(241, 60, 90);
+            height: 40px;
+            width: 40px;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: whitesmoke;
+            margin-left: auto;
+            cursor: pointer;
+            transition: all .3s linear;
+        }
+
+        section.todo .content .list-display .list .del:hover,
+        #clearTodo:hover {
+            background-color: rgb(240, 34, 68);
+            font-size: 30px;
+        }
+
+        #clearTodo {
+            width: 200px;
+        }
+
+        #clearTodo:hover {
+            font-size: 22px;
+            width: 200px;
+        }
     </style>
 </head>
 
@@ -79,7 +168,23 @@
             <button id="reset"> reset </button>
         </div>
     </section>
+    <section class="todo">
+        <h2>Todo List</h2>
+        <div class="content">
+            <div class="list-fn">
+                <input type="text" id="text">
+                <button id="addTodo"> + Add </button>
+            </div>
+            <div class="list-display">
+
+            </div>
+            <div class="list-fn">
+                <button id="clearTodo">Clear All</button>
+            </div>
+        </div>
+    </section>
     <script>
+        /*Counter*/
         const number = document.querySelector('#number');
         const add = document.querySelector('#add');
         const reduce = document.querySelector('#reduce');
@@ -95,6 +200,42 @@
         reset.addEventListener('click', () => {
             number.value = 0
         })
+
+        /*Todo list*/
+        let list = []
+        const addTodo = document.querySelector('#addTodo')
+        const clearTodo = document.querySelector('#clearTodo')
+        const text = document.querySelector('#text')
+        const display = document.querySelector('.list-display')
+        addTodo.addEventListener('click', () => {
+            if (text.value !== '') {
+                list.push(text.value)
+                updateTodo()
+                text.value = ''
+            }
+        })
+        clearTodo.addEventListener('click', () => {
+            console.log('ee');
+            list = []
+            updateTodo()
+        })
+        const updateTodo = () => {
+            display.innerHTML = ''
+            list.forEach((e, index) => {
+                const html =
+                    ` <div class="list">
+                    <div class="title">${e}</div>
+                    <div class="del" onclick="delTodo(${index})">X</div>
+                </div>`
+                display.innerHTML += html
+            })
+        }
+
+        const delTodo = (index) => {
+            list.splice(index, 1)
+            updateTodo()
+        }
+
     </script>
 </body>
 
