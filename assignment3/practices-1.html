@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            font-size: 40px;
+        }
+
+        section {
+            padding: 80px 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        section.counter {
+            background-color: #d8f0f9;
+        }
+
+        section.counter .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 800px;
+            margin: 20px 0px;
+        }
+
+        section.counter .content button {
+            width: 60px;
+            height: 30px;
+            margin: 0px 20px;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all .3s linear;
+            background-color: rgb(223, 223, 248);
+        }
+
+        section.counter .content button:hover {
+            background-color: rgb(203, 203, 247);
+            color: white;
+        }
+
+        section.counter .content button#reset {
+            margin-left: 20px;
+        }
+
+        section.counter .content input {
+            border: none;
+            background-color: white;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="counter">
+        <h2>Counter</h2>
+        <div class="content">
+            <button id="reduce"> - </button>
+            <input type="text" value="0" disabled id="number">
+            <button id="add"> + </button>
+            <button id="reset"> reset </button>
+        </div>
+    </section>
+    <script>
+        const number = document.querySelector('#number');
+        const add = document.querySelector('#add');
+        const reduce = document.querySelector('#reduce');
+        const reset = document.querySelector('#reset');
+        add.addEventListener('click', () => {
+            number.value++
+        })
+
+        reduce.addEventListener('click', () => {
+            number.value--
+        })
+
+        reset.addEventListener('click', () => {
+            number.value = 0
+        })
+    </script>
+</body>
+
+</html>
